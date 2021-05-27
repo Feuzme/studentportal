@@ -30,7 +30,7 @@ public class LoginService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("select id,firstname,lastname,phone,email from studentp.user where id='"+studentID+"'");
+            Query query = session.createQuery("from StudentPortalEntity where id='"+studentID+"'");
             student = (StudentPortalEntity)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class LoginService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            list = session.createQuery("select * from User").list();                        
+            list = session.createQuery("from StudentPortalEntity").list();                        
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
