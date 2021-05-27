@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <!-- Sans data source -->
+    <!-- 
+      <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+      <property name="connection.url">jdbc:mysql://localhost/studentp?allowPublicKeyRetrieval=true&amp;useSSL=false</property> 
+      <property name="connection.username">root</property>
+      <property name="connection.password"></property> 
+    -->
+
+    <!-- Avec data source -->
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+    <property name="current_session_context_class">thread</property>
+
+    <!-- Configuration de la data source https://brettwooldridge.github.io/HikariCP/ -->
+    <!-- Hibernate 5 + dependance Maven vers hibernate-hikaricp -->
+    <property name="connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+    <property name="hikari.minimumIdle">5</property>
+    <property name="hikari.maximumPoolSize">10</property>
+    <property name="hikari.idleTimeout">30000</property>
+    <property name="hikari.dataSource.cachePrepStmts">true</property>
+    <property name="hikari.dataSource.prepStmtCacheSize">250</property>
+    <property name="hikari.dataSource.prepStmtCacheSqlLimit">2048</property>
+
+    <!-- datasource mysql 8 -->
+    <property name="hikari.dataSourceClassName">com.mysql.cj.jdbc.MysqlDataSource</property>
+      
+    <property name="hikari.dataSource.url">jdbc:mysql://localhost/studentp?allowPublicKeyRetrieval=true&amp;useSSL=false</property>
+    <property name="hikari.dataSource.user">root</property>
+    <property name="hikari.dataSource.password">admin123</property>
+
+    <!-- Mapping en dernier classes annotation -->
+  </session-factory>
+</hibernate-configuration>
