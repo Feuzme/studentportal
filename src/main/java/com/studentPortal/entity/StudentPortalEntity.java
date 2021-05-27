@@ -43,7 +43,7 @@ public class StudentPortalEntity implements Serializable{
 	@Column(name = "email")
 	private String email;
 	@Column(name = "phone")
-	private String ephone;
+	private String phone;
 
 	
 	public StudentPortalEntity() {
@@ -139,11 +139,11 @@ public class StudentPortalEntity implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getEphone() {
-		return ephone;
+	public String getPhone() {
+		return phone;
 	}
-	public void setEphone(String ephone) {
-		this.ephone = ephone;
+	public void setEphone(String phone) {
+		this.phone = phone;
 	}
 
 	@Override
@@ -151,7 +151,7 @@ public class StudentPortalEntity implements Serializable{
 		return "StudentPortalEntity [id=" + id + ", login=" + login + ", password=" + password + ", lastname="
 				+ lastname + ", firstname=" + firstname + ", sex=" + sex + ", lastConnection=" + lastConnection
 				+ ", birthDate=" + birthDate + ", adress=" + adress + ", postal=" + postal + ", email=" + email
-				+ ", ephone=" + ephone + "]";
+				+ ", ephone=" + phone + "]";
 	}
 	
 	
