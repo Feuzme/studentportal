@@ -56,9 +56,30 @@ table.inner {
 					30 characters a-z and A-Z)</td>
 			</tr>
 			<tr>
-				<td>Email</td>
+				<td>Phone</td>
+				<td><input type="text" name="phone" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td>Mail</td>
 				<td><input type="text" name="email" maxlength="100" /></td>
 			</tr>
+			<tr>
+				<td>Postal</td>
+				<td><input type="text" name="postal" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td>Date de naissance</td>
+				<td><input type="date" name="birthDate"/></td>
+			</tr>
+			<tr>
+				<td>Sex</td>
+				<td>
+					Femme
+					<input type="radio" value ="F" name="sex"/>
+					Homme
+					<input type="radio" value ="M" name="sex"/>
+				</td>
+			</tr>			
 			<tr>
 				<td colspan="2" align="center"><input type="submit"
 					value="S'inscrire"> <input type="reset" value="Annuler">

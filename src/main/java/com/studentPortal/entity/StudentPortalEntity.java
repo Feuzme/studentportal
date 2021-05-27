@@ -1,7 +1,7 @@
 package com.studentPortal.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.studentPortal.dto.StudentDto;
 
 
 @Entity
@@ -89,6 +91,12 @@ public class StudentPortalEntity implements Serializable{
 		}
 		return false;
 	}
+	
+	public StudentDto toStudentDto() {
+		StudentDto studentDto = new StudentDto(this);
+		return studentDto;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

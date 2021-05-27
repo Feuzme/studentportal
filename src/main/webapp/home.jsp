@@ -1,3 +1,4 @@
+<%@page import="com.studentPortal.dto.StudentDto"%>
 <%@page import="java.util.List"%>
 <%@page import="com.studentPortal.service.LoginService"%>
 <%@page import="java.util.Date"%>
@@ -13,11 +14,12 @@
 <body>
 <center>
 	 <div id="container">
+	 	<p>
 		 <h1>Page de résultat</h1>
 			 <b>C'est une page de résultat simple</b><br/>
 			 <%=new Date()%></br>
 			 <%
-			 	StudentPortalEntity student = (StudentPortalEntity) session.getAttribute("student");
+			 	StudentDto student = (StudentDto) session.getAttribute("student");
 			 %>		
 			 <b>Bienvenue <%= student.getFirstname() + " " + student.getLastname()%></b>		
 			 <br/>

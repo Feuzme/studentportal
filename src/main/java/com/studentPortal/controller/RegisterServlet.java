@@ -2,7 +2,7 @@ package com.studentPortal.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.Date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,19 +38,19 @@ public class RegisterServlet extends HttpServlet {
 	else{
 		sexBoolean = false;
 	}
-	 //String birthDate = request.getParameter("birthDate");
+	 String birthDate = request.getParameter("birthDate");
 	 Date birth = null;
-	//try {
-	//	birth = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
-	//} catch (ParseException e) {
-		// TODO Auto-generated catch block
-	//	e.printStackTrace();
-	//}
+	try {
+		birth = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
+	} catch (ParseException e) {		
+		e.printStackTrace();
+	}
 	 String address = request.getParameter("address");
-	 String postal = request.getParameter("postal");
+	 Integer postal = ((request.getParameter("postal")!= "") ? Integer.parseInt(request.getParameter("postal")) : 0);
+	 
 	 String email = request.getParameter("email");
 	 String phone = request.getParameter("phone");
-	 StudentPortalEntity student = new StudentPortalEntity(login,password,lastName,firstName,sexBoolean,birth,address,0,email,phone);		
+	 StudentPortalEntity student = new StudentPortalEntity(login,password,lastName,firstName,sexBoolean,birth,address,postal,email,phone);		
 	 try {	
 		 RegisterService registerService = new RegisterService();
 		 boolean result = registerService.register(student);		
