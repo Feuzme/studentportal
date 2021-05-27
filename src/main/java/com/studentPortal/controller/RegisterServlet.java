@@ -3,7 +3,8 @@ package com.studentPortal.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.sql.Timestamp;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
@@ -16,34 +17,43 @@ import com.studentPortal.service.RegisterService;
 
 
 public class RegisterServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 	boolean sexBoolean;
 	 response.setContentType("text/html;charset=UTF-8");
 	 PrintWriter out = response.getWriter();
-	 String studentId = request.getParameter("id");
 	 String login = request.getParameter("login");
 	 String password = request.getParameter("password");
 	 String lastName = request.getParameter("lastname");
 	 String firstName = request.getParameter("firstname");
 	 String sex = request.getParameter("sex");
-	 if(Integer.parseInt(sex)==0) {
+	 if(sex=="F") {
 		 sexBoolean = true;
 	 }
 	else{
 		sexBoolean = false;
 	}
-	 String birthDate = request.getParameter("birthDate");
-	 Date birth = new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
-	 String adress = request.getParameter("adress");
+	 //String birthDate = request.getParameter("birthDate");
+	 Date birth = null;
+	//try {
+	//	birth = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
+	//} catch (ParseException e) {
+		// TODO Auto-generated catch block
+	//	e.printStackTrace();
+	//}
+	 String address = request.getParameter("address");
 	 String postal = request.getParameter("postal");
 	 String email = request.getParameter("email");
 	 String phone = request.getParameter("phone");
-	 StudentPortalEntity student = new StudentPortalEntity(Integer.parseInt(studentId),login,password,lastName,firstName,sexBoolean,,adress,Integer.parseInt(postal),email,phone);
-			
+	 StudentPortalEntity student = new StudentPortalEntity(login,password,lastName,firstName,sexBoolean,birth,address,0,email,phone);		
 	 try {	
 		 RegisterService registerService = new RegisterService();
-		 boolean result = registerService.register(user);		
+		 boolean result = registerService.register(student);		
 		 out.println("<html>");
 		 out.println("<head>");		
 		 out.println("<title>Inscription réussie</title>");		

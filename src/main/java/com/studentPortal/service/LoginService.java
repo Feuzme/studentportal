@@ -13,7 +13,7 @@ import com.studentPortal.entity.StudentPortalEntity;
 
 public class LoginService {
 
-    public boolean authenticateUser(String studentID, String password) {
+    public boolean authenticateStudent(Integer studentID, String password) {
     	StudentPortalEntity student = getStudentByStudentId(studentID);          
         if(student!=null && student.getId().equals(studentID) && student.getPassword().equals(password)){
             return true;
@@ -22,7 +22,7 @@ public class LoginService {
         }
     }
 
-    public StudentPortalEntity getStudentByStudentId(String studentID) {
+    public StudentPortalEntity getStudentByStudentId(Integer studentID) {
     	SessionFactory sessionFactory = StudentPortalStudentFactory.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -30,7 +30,7 @@ public class LoginService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from user where id='"+studentID+"'");
+            Query query = session.createQuery("select id,firstname,lastname,phone,email from studentp.user where id='"+studentID+"'");
             student = (StudentPortalEntity)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class LoginService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            list = session.createQuery("from User").list();                        
+            list = session.createQuery("select * from User").list();                        
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {

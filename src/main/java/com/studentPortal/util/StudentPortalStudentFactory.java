@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.mysql.cj.Session;
+
 /**
  * Factory hibernate 5.
  *
@@ -38,4 +40,5 @@ public final class StudentPortalStudentFactory {
 		}
 		return StudentPortalStudentFactory.sessionFactory;
 	}
+	
 }

@@ -36,8 +36,8 @@ public class StudentPortalEntity implements Serializable{
 	private Timestamp lastConnection;
 	@Column(name = "birthDate")
 	private Date birthDate;
-	@Column(name = "adress")
-	private String adress;
+	@Column(name = "address")
+	private String address;
 	@Column(name = "postal")
 	private Integer postal;
 	@Column(name = "email")
@@ -49,6 +49,22 @@ public class StudentPortalEntity implements Serializable{
 	public StudentPortalEntity() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public StudentPortalEntity(String login, String password, String lastname, String firstname,
+			Boolean sex, Date birthDate, String address, Integer postal, String email,
+			String phone) {
+		super();
+		this.login = login;
+		this.password = password;
+		this.lastname = lastname;
+		this.firstname = firstname;
+		this.sex = sex;
+		this.birthDate = birthDate;
+		this.address = address;
+		this.postal = postal;
+		this.email = email;
+		this.phone = phone;
 	}
 
 	@Override
@@ -121,11 +137,11 @@ public class StudentPortalEntity implements Serializable{
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public Integer getPostal() {
 		return postal;
@@ -150,7 +166,7 @@ public class StudentPortalEntity implements Serializable{
 	public String toString() {
 		return "StudentPortalEntity [id=" + id + ", login=" + login + ", password=" + password + ", lastname="
 				+ lastname + ", firstname=" + firstname + ", sex=" + sex + ", lastConnection=" + lastConnection
-				+ ", birthDate=" + birthDate + ", adress=" + adress + ", postal=" + postal + ", email=" + email
+				+ ", birthDate=" + birthDate + ", address=" + address + ", postal=" + postal + ", email=" + email
 				+ ", ephone=" + phone + "]";
 	}
 	
