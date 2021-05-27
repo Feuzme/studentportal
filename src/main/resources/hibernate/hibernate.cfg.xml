@@ -31,7 +31,7 @@
       
     <property name="hikari.dataSource.url">jdbc:mysql://localhost/studentp?allowPublicKeyRetrieval=true&amp;useSSL=false</property>
     <property name="hikari.dataSource.user">root</property>
-    <property name="hikari.dataSource.password">admin123</property>
+    <property name="hikari.dataSource.password">admin</property>
 
     <!-- Mapping en dernier classes annotation -->
   </session-factory>
