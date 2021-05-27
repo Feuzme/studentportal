@@ -34,5 +34,7 @@
     <property name="hikari.dataSource.password">admin</property>
 
     <!-- Mapping en dernier classes annotation -->
+    <mapping class="com.studentPortal.entity.StudentPortalEntity"></mapping>
+    
   </session-factory>
 </hibernate-configuration>
